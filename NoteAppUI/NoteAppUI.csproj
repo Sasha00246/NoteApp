@@ -49,14 +49,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="AboutFormProgram.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AboutFormProgram.Designer.cs">
+      <DependentUpon>AboutFormProgram.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEditNoteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditNoteForm.Designer.cs">
+      <DependentUpon>AddEditNoteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NoteAppForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NoteAppForm.Designer.cs">
+      <DependentUpon>NoteAppForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AboutFormProgram.resx">
+      <DependentUpon>AboutFormProgram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEditNoteForm.resx">
+      <DependentUpon>AddEditNoteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NoteAppForm.resx">
+      <DependentUpon>NoteAppForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -65,6 +86,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -85,6 +107,15 @@
       <Project>{1428af38-e477-4702-aef6-646a33c9d981}</Project>
       <Name>NoteApp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-add-483320.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-edit-4007762.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-delete-7104075.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

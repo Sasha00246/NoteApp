@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace NoteAppUI
 {
-    public partial class Form1 : Form
+    public partial class AboutFormProgram : Form
     {
-        public Form1()
+        public AboutFormProgram()
         {
             InitializeComponent();
         }

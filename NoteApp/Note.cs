@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,11 +20,13 @@ namespace NoteApp
         DateTime _creationTime;
         DateTime _timeOfLastChange;
 
-        public Note(string title, EnumNoteCategory category, string noteText)
+        public Note(string title, EnumNoteCategory category, string noteText, DateTime creationTime, DateTime timeOfLastChange)
         {
             Title = title;
             Category = category;
             NoteText = noteText;
+            CreationTime = creationTime;
+            TimeOfLastChange = timeOfLastChange;
         }
 
         /// <summary>
@@ -101,13 +104,41 @@ namespace NoteApp
         public DateTime CreationTime
         {
             get { return _creationTime; }
+            set
+            {
+                if (_creationTime != value)
+                {
+                    if (value != DateTime.MinValue)
+                    {
+                        _creationTime = value;
+                    }
+                    else
+                    {
+                        throw new ArgumentException("Некорректная дата!");
+                    }
+                }
+            }
         }
         /// <summary>
         /// Возвращает время последнего изменения
         /// </summary>
         public DateTime TimeOfLastChange 
         { 
-            get { return _timeOfLastChange; } 
+            get { return _timeOfLastChange; }
+            set
+            {
+                if (_timeOfLastChange != value)
+                {
+                    if (value != DateTime.MinValue)
+                    {
+                        _timeOfLastChange = value;
+                    }
+                    else
+                    {
+                        throw new ArgumentException("Некорректная дата!");
+                    }
+                }
+            }
         }
         /// <summary>
         /// Метод клонирования заметки
@@ -115,7 +146,7 @@ namespace NoteApp
         /// <returns> Возвращает новую, эдентичную старой заметку</returns>
         public object Clone()
         {
-            return new Note(Title, Category, NoteText);
+            return new Note(Title, Category, NoteText, CreationTime, TimeOfLastChange);
         }
     }
 }
