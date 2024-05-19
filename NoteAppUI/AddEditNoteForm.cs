@@ -51,7 +51,7 @@ namespace NoteAppUI
                 var category = (EnumNoteCategory)CategoryBox.SelectedItem;
                 string noteText = NoteText.Text;
                 DateTime creationTime = CreationTime.Value;
-                DateTime timeOfLastChange = TimeOfLastChange.Value;
+                DateTime timeOfLastChange = DateTime.Now;
 
                 if (CurrentNote == null)
                 {
