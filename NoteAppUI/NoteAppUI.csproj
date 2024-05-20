@@ -127,4 +127,15 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\NUnit3TestAdapter.4.5.0\build\net462\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.4.5.0\build\net462\NUnit3TestAdapter.props'))" />
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>md $(SolutionDir)InstallScripts\Release
+
+xcopy $(ProjectDir)$(OutDir)*.dll $(SolutionDir)InstallScripts\Release
+xcopy $(ProjectDir)$(OutDir)*.exe $(SolutionDir)InstallScripts\Release
+xcopy $(ProjectDir)$(OutDir)*.json $(SolutionDir)InstallScripts\Release
+
+"D:\ProgLab\Inno Setup 6\iSCC.exe" $(SolutionDir)InstallScripts\PackSetupper.iss
+
+RD /S /Q $(SolutionDir)InstallScripts\Release</PostBuildEvent>
+  </PropertyGroup>
 </Project>

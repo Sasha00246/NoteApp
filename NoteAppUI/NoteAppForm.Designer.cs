@@ -1,4 +1,6 @@
-﻿namespace NoteAppUI
+﻿using NoteApp;
+
+namespace NoteAppUI
 {
     partial class NoteAppForm
     {
@@ -211,7 +213,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.NotesListBox.FormattingEnabled = true;
             this.NotesListBox.ItemHeight = 16;
-            this.NotesListBox.Location = new System.Drawing.Point(6, 36);
+            this.NotesListBox.Location = new System.Drawing.Point(10, 28);
             this.NotesListBox.Name = "NotesListBox";
             this.NotesListBox.Size = new System.Drawing.Size(257, 308);
             this.NotesListBox.TabIndex = 2;
@@ -230,9 +232,10 @@
             // 
             this.CategoryBox.FormattingEnabled = true;
             this.CategoryBox.Items.AddRange(new object[] {
+            "All",
             "Job",
             "Home",
-            "Health And Sports",
+            "HealthAndSports",
             "People",
             "Documents",
             "Finance",
@@ -241,6 +244,7 @@
             this.CategoryBox.Name = "CategoryBox";
             this.CategoryBox.Size = new System.Drawing.Size(144, 24);
             this.CategoryBox.TabIndex = 0;
+            this.CategoryBox.SelectedIndexChanged += new System.EventHandler(this.CategoryBox_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -334,10 +338,12 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "NoteAppForm";
             this.Text = "NoteApp";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NoteAppForm_FormClosed);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NoteAppForm_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
